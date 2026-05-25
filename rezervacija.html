@@ -1,0 +1,608 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
+<!--  Last Published: Sat Apr 20 2024 13:52:15 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="65f81e02e6d9e47bc2db7e69" data-wf-site="65e58fce210be27342c9fca5" lang="ba">
+
+<head>
+  <meta charset="utf-8">
+  <title>Rezervacija</title>
+  <meta content="Rezerviši svoj apartman u Tuzli po povoljnim cijenama počevši od danas" name="description">
+  <meta content="Rezervacija" property="og:title">
+  <meta content="Rezerviši svoj apartman u Tuzli po povoljnim cijenama počevši od danas" property="og:description">
+  <meta content="Rezervacija" property="twitter:title">
+  <meta content="Rezerviši svoj apartman u Tuzli po povoljnim cijenama počevši od danas" property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/apartmani-elegance.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script
+    type="text/javascript">WebFont.load({ google: { families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Playfair Display:regular,500,600,700,800,900", "Josefin Sans:100,200,300,regular,500,600,700"] } });</script>
+  <script
+    type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.jpg" rel="apple-touch-icon">
+  <style>
+    @media only screen and (max-width: 990px) {
+      .iti {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="all-section rezervacija-hero">
+    <div class="container rezervacija-container">
+      <div class="rezervacija-text-wrapper">
+        <h2 class="main-h2 rezervacija-h2">Rezerviši svoj apartman</h2>
+        <div class="steps-content-wrapper">
+          <div class="rezervacija-below-h2">Kako do rezervacije?</div>
+          <div class="step-rezervacija"><img src="images/number-1-icon.svg" loading="lazy" alt="">
+            <div class="step-text-rez">Odaberi svoj apartman</div>
+          </div>
+          <div class="step-rezervacija"><img src="images/number-2-icon.svg" loading="lazy" alt="">
+            <div class="step-text-rez">Popuni formu sa podacima na web stranici</div>
+          </div>
+          <div class="step-rezervacija"><img src="images/number-3-icon.svg" loading="lazy" alt="">
+            <div class="step-text-rez">Kada vlasnici provjere čekirani datum, dobiti ćete povratni e-mail sa odgovorom i
+              potvrdom.</div>
+          </div>
+        </div>
+        <a data-w-id="34ccdd58-61f5-e50a-3ff9-e103c6be39b9" href="index.html"
+          class="yellow-button rezervacija-go-back-button w-inline-block"><img src="images/right-arrow.svg"
+            loading="lazy" alt="" class="arrow backwards-arrow">
+          <div class="go-back-button-text">Idi natrag</div>
+        </a>
+      </div>
+      <div class="rezervacija-form-wrapper">
+        <div class="rezervacija-form w-form">
+            
+          <form id="wf-form-reservation-form" name="wf-form-reservation-form" data-name="reservation-form" method="get"
+            class="form" data-wf-page-id="65f81e02e6d9e47bc2db7e69"
+            data-wf-element-id="9a51834f-f288-3a6b-5cad-1135d288d9ca">
+            <div class="form-flex-inputs">
+              <div class="form-input flex-input">
+                <label for="name" class="field-label">Ime i prezime</label>
+                <input class="text-field w-input" maxlength="256" name="name" data-name="Name" placeholder="Full Name"
+                  type="text" id="name" required="">
+              </div>
+              <div class="form-input">
+                <label for="email" class="field-label">E-mail adresa</label>
+                <input class="text-field w-input" maxlength="256" name="email" data-name="email"
+                  placeholder="example@gmail.com" type="email" id="email" required="">
+              </div>
+            </div>
+            <div class="form-flex-inputs second-ffi">
+              <div class="form-input flex-input">
+                <label for="phone" class="field-label">Broj telefona</label>
+                <input ms-code-phone-number="ca,gb,us" class="input text-field mobile-number w-input" maxlength="256"
+                  name="Phone" data-name="Phone" placeholder="Enter your phone number" type="text" id="phone"
+                  required="">
+              </div>
+              <div class="form-input date-range">
+                <label for="date" class="field-label">Odaberi datum dolaska i odlaska</label>
+                <input class="input text-field w-input" maxlength="256" name="Dates" data-name="Dates"
+                  ms-code-input="date-range" placeholder="Date range" type="text" id="date" required="">
+              </div>
+            </div>
+            <div class="chckbox-container"><label for="name-4" class="field-label">Odaberi jedinicu</label>
+              <div class="checkboxes-wrapper"><label class="w-checkbox checkbox-field first-cf">
+                  <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox"
+                    name="deluxe-apartman" id="deluxe-apartman" data-name="deluxe-apartman"
+                    style="opacity:0;position:absolute;z-index:-1"><span class="checkbox-label w-form-label"
+                    for="deluxe-apartman">Deluxe Apartman</span>
+                </label><label class="w-checkbox checkbox-field second-cf">
+                  <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox"
+                    name="trosoban-apartman" id="trosoban-apartman" data-name="trosoban-apartman"
+                    style="opacity:0;position:absolute;z-index:-1"><span class="checkbox-label w-form-label"
+                    for="trosoban-apartman">Trosoban apartman</span>
+                </label><label class="w-checkbox checkbox-field third-cf">
+                  <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox"
+                    name="dvosoban-apartman" id="dvosoban-apartman" data-name="dvosoban-apartman"
+                    style="opacity:0;position:absolute;z-index:-1"><span class="checkbox-label w-form-label"
+                    for="dvosoban-apartman">Dvosoban apartman</span>
+                </label><label class="w-checkbox checkbox-field fourth-cf">
+                  <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox"
+                    name="kikin-apartman" id="kikin-apartman" data-name="kikin-apartman"
+                    style="opacity:0;position:absolute;z-index:-1"><span class="checkbox-label w-form-label"
+                    for="kikin-apartman">Dvosoban apartman sa dnevnim boravkom</span>
+                </label></div>
+            </div>
+            <div class="form-flex-inputs below-checkbox">
+              <div class="form-input flex-input"><label for="guests-numb" class="field-label">Broj
+                  gostiju</label><select id="guests-numb" name="Broj-gostiju" data-name="Broj gostiju" required=""
+                  class="text-field select-guest-field w-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="11plus">11 ili više</option>
+                </select></div>
+              <div class="form-input"><label for="country" class="field-label">Zemlja / regija</label><select
+                  id="country" name="Zemlja" data-name="Zemlja" required="" class="text-field w-select">
+                  <option value="">Select country</option>
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Akrotiri">Akrotiri</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="American Samoa">American Samoa</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Anguilla">Anguilla</option>
+                  <option value="Antarctica">Antarctica</option>
+                  <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Aruba">Aruba</option>
+                  <option value="Ashmore and Cartier Islands">Ashmore and Cartier Islands</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahamas">Bahamas</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Bassas da India">Bassas da India</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Belize">Belize</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bermuda">Bermuda</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Bouvet Island">Bouvet Island</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                  <option value="British Virgin Islands">British Virgin Islands</option>
+                  <option value="Brunei">Brunei</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burma">Burma</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Cape Verde">Cape Verde</option>
+                  <option value="Cayman Islands">Cayman Islands</option>
+                  <option value="Central African Republic">Central African Republic</option>
+                  <option value="Chad">Chad</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Christmas Island">Christmas Island</option>
+                  <option value="Clipperton Island">Clipperton Island</option>
+                  <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo">Congo</option>
+                  <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                  <option value="Republic of the Cook Islands">Republic of the Cook Islands</option>
+                  <option value="Coral Sea Islands">Coral Sea Islands</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Cote d&#x27;Ivoire">Cote d&#x27;Ivoire</option>
+                  <option value="Croatia">Croatia</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Dhekelia">Dhekelia</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominica">Dominica</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Europa Island">Europa Island</option>
+                  <option value="Falkland Islands (Islas Malvinas)">Falkland Islands (Islas Malvinas)</option>
+                  <option value="Faroe Islands">Faroe Islands</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="French Guiana">French Guiana</option>
+                  <option value="French Polynesia">French Polynesia</option>
+                  <option value="French Southern and Antarctic Lands">French Southern and Antarctic Lands</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Gaza Strip">Gaza Strip</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Gibraltar">Gibraltar</option>
+                  <option value="Glorioso Islands">Glorioso Islands</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Greenland">Greenland</option>
+                  <option value="Grenada">Grenada</option>
+                  <option value="Guadeloupe">Guadeloupe</option>
+                  <option value="Guam">Guam</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guernsey">Guernsey</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+                  <option value="Holy See (Vatican City)">Holy See (Vatican City)</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hong Kong">Hong Kong</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="India">India</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Iran">Iran</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Isle of Man">Isle of Man</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Jan Mayen">Jan Mayen</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jersey">Jersey</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Juan de Nova Island">Juan de Nova Island</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kiribati">Kiribati</option>
+                  <option value="Korea, North">Korea, North</option>
+                  <option value="Korea, South">Korea, South</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Laos">Laos</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Liechtenstein">Liechtenstein</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Macau">Macau</option>
+                  <option value="Macedonia">Macedonia</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Marshall Islands">Marshall Islands</option>
+                  <option value="Martinique">Martinique</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mayotte">Mayotte</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Micronesia">Micronesia</option>
+                  <option value="Moldova">Moldova</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montenegro">Montenegro</option>
+                  <option value="Montserrat">Montserrat</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Namibia">Namibia</option>
+                  <option value="Nauru">Nauru</option>
+                  <option value="Navassa Island">Navassa Island</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="Netherlands Antilles">Netherlands Antilles</option>
+                  <option value="New Caledonia">New Caledonia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Niue">Niue</option>
+                  <option value="Norfolk Island">Norfolk Island</option>
+                  <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palau">Palau</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paracel Islands">Paracel Islands</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Pitcairn Islands">Pitcairn Islands</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Puerto Rico">Puerto Rico</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Reunion">Reunion</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Saint Helena">Saint Helena</option>
+                  <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                  <option value="Saint Lucia">Saint Lucia</option>
+                  <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                  <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                  <option value="Samoa">Samoa</option>
+                  <option value="San Marino">San Marino</option>
+                  <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Serbia">Serbia</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich
+                    Islands</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Spratly Islands">Spratly Islands</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Svalbard">Svalbard</option>
+                  <option value="Swaziland">Swaziland</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syria">Syria</option>
+                  <option value="Taiwan">Taiwan</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Timor-Leste">Timor-Leste</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tokelau">Tokelau</option>
+                  <option value="Tonga">Tonga</option>
+                  <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                  <option value="Tromelin Island">Tromelin Island</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                  <option value="Tuvalu">Tuvalu</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States">United States</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Virgin Islands">Virgin Islands</option>
+                  <option value="Wake Island">Wake Island</option>
+                  <option value="Wallis and Futuna">Wallis and Futuna</option>
+                  <option value="West Bank">West Bank</option>
+                  <option value="Western Sahara">Western Sahara</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                </select></div>
+            </div>
+            <div class="form-flex-inputs">
+              <div class="form-input time-fi"><label for="arrive-time" class="field-label">Očekivano vrijeme
+                  dolaska</label><select id="arrive-time" name="Ocekivani-dolazak" data-name="Ocekivani dolazak:"
+                  class="text-field w-select">
+                  <option value="12:00 - 13:00">12:00 - 13:00</option>
+                  <option value="13:00 - 14:00">13:00 - 14:00</option>
+                  <option value="14:00 - 15:00">14:00 - 15:00</option>
+                  <option value="15:00 - 16:00">15:00 - 16:00</option>
+                  <option value="16:00 - 17:00">16:00 - 17:00</option>
+                  <option value="17:00 - 18:00">17:00 - 18:00</option>
+                  <option value="18:00 - 19:00">18:00 - 19:00</option>
+                  <option value="19:00 - 20:00">19:00 - 20:00</option>
+                  <option value="20:00 - 21:00">20:00 - 21:00</option>
+                  <option value="21:00 - 22:00">21:00 - 22:00</option>
+                  <option value="22:00 - 23:00">22:00 - 23:00</option>
+                </select></div>
+            </div>
+            
+            <div class="form-flex-inputs">
+              <div class="form-input message-fi"><label for="message" class="field-label">Upišite neku poruku koju
+                  želite uputiti vlasniku</label><textarea id="message" name="Poruka" maxlength="5000"
+                  data-name="Poruka" placeholder="Ex. Da li možemo povesti kućnog ljubimca?"
+                  class="text-field text-area w-input"></textarea></div>
+            </div><input type="submit" data-wait="Molimo sačekaj..." class="submit-button w-button"
+              value="Pošalji upit">
+             <p class="text-form-note" style="color: #f5f5f5; font-size: 12px;">
+  *Napomena: Slanjem ovih podataka ne pravite rezervaciju, već samo šaljete upit. Ako želite direktnu rezervaciju, molimo vas da to uradite putem
+  <a href="https://www.booking.com/hotel/ba/apartmani-tuzla-tuzla.hr.html" style="color: #FFD700">Booking.com</a> platforme.
+</p>
+
+<p class="text-form-note" style="color: #f5f5f5; font-size: 12px;">
+  *Note: By submitting this form you are not making a reservation — you are only sending an inquiry. If you would like to book directly, please do so through the
+  <a href="https://www.booking.com/hotel/ba/apartmani-tuzla-tuzla.hr.html" style="color: #FFD700">Booking.com</a> platform.
+</p>
+          </form>
+        <div id="status" style="margin-top:10px;"></div>
+        </div>
+      </div>
+    </div><img src="images/elegance-logo-navbar.svg" loading="lazy" alt="" class="logo--rezervacija">
+    
+  </section>
+  <section class="footer">
+    <div class="container-2">
+      <div class="footer-wrapper-two">
+        <div id="w-node-_9a4ae826-a4af-3467-bbd7-5afc1b6767a1-1b67679e" class="col1-footer-brand-wrapper">
+          <a href="index.html" aria-current="page" class="footer-brand w-inline-block w--current"><img
+              src="images/footer-logo.svg" loading="lazy" alt=""></a>
+          <div class="footer-brand-text">Dobrodošli u Elegance apartmane. Počevši sa radom od 2018. godine, naša ponuda
+            sastoji se od 4 savremeno opremljena apartmana.</div>
+        </div>
+        <div class="footer-block-two">
+          <div class="footer-title">Sekcije</div>
+          <a href="index.html" aria-current="page" class="footer-link-two w--current">Naslovna</a>
+          <a href="index.html" aria-current="page" class="footer-link-two w--current">Ponuda</a>
+          <a href="index.html" aria-current="page" class="footer-link-two w--current">Recenzije</a>
+          <a href="index.html" aria-current="page" class="footer-link-two w--current">Lokacija</a>
+          <a href="index.html" aria-current="page" class="footer-link-two w--current">Pravilnik</a>
+        </div>
+        <div class="footer-block-two">
+          <div class="footer-title">Kontakt informacije</div>
+          <a href="#" class="footer-link-two">+387/61-025-810</a>
+          <a href="#" class="footer-link-two">Donji Mosnik 7, Tuzla 75000, Bosna i Hercegovina.</a>
+          <a href="#" class="footer-link-two">apartmanielegance@gmail.com</a>
+        </div>
+        <div class="footer-form w-form">
+          <form id="wf-form-Footer-Form" name="wf-form-Footer-Form" data-name="Footer Form" method="get"
+            class="footer-form-container" data-wf-page-id="65e58fce210be27342c9fcad"
+            data-wf-element-id="9a4ae826-a4af-3467-bbd7-5afc1b6767bd">
+            <div class="footer-title">Posjetite nas na platformama</div>
+            <div class="link-blocks-footer-socials">
+              <a href="https://www.booking.com/hotel/ba/apartmani-tuzla-tuzla.hr.html" target="_blank"
+                class="social-media-link w-inline-block"><img src="images/booking-circle-logo.svg" loading="lazy"
+                  alt=""></a>
+              <a href="https://airbnb.com/h/elegance-apartments-in-tuzla" target="_blank"
+                class="social-media-link w-inline-block"><img src="images/airbnb-circle-logo.svg" loading="lazy"
+                  alt=""></a>
+              <a href="https://www.instagram.com/apartmani.elegance.tuzla/"
+                target="_blank" class="social-media-link last-sml w-inline-block"><img src="images/ig-circle-logo.svg"
+                  loading="lazy" alt=""></a>
+            </div>
+          </form>
+          <div class="w-form-done">
+            <div>Thank you! Your submission has been received!</div>
+          </div>
+          <div class="w-form-fail">
+            <div>Oops! Something went wrong while submitting the form.</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider-two"></div>
+      <div class="footer-bottom">
+        <a href="https://www.linkedin.com/in/eldardizdarevi" target="_blank"
+          class="eldars-social w-inline-block">
+          <div class="footer-copyright">© 2026 Apartmani Elegance x Eldar Dizdarevic</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=65e58fce210be27342c9fca5"
+    type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+  <style>
+    .daterangepicker td.active {
+      background-color: #B98B2C !important;
+    }
+  </style>
+  <script type="text/javascript">
+    $(function () {
+      $('input[ms-code-input="date-range"]').daterangepicker({
+        "opens": "center",
+        "locale": {
+          "format": "DD/MM/YYYY",
+          "separator": " - ",
+          "applyLabel": "Apply",
+          "cancelLabel": "Cancel",
+          "fromLabel": "From",
+          "toLabel": "To",
+          "customRangeLabel": "Custom",
+          "weekLabel": "W",
+          "daysOfWeek": [
+            "Su",
+            "Mo",
+            "Tu",
+            "We",
+            "Th",
+            "Fr",
+            "Sa"
+          ],
+          "monthNames": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ],
+        },
+      });
+      $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      });
+      $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+        $(this).val('');
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('input[ms-code-phone-number]').each(function () {
+        var input = this;
+        var preferredCountries = $(input).attr('ms-code-phone-number').split(',');
+        var iti = window.intlTelInput(input, {
+          preferredCountries: preferredCountries,
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+        $.get("https://ipinfo.io", function (response) {
+          var countryCode = response.country;
+          iti.setCountry(countryCode);
+        }, "jsonp");
+        input.addEventListener('change', formatPhoneNumber);
+        input.addEventListener('keyup', formatPhoneNumber);
+        function formatPhoneNumber() {
+          var formattedNumber = iti.getNumber(intlTelInputUtils.numberFormat.NATIONAL);
+          input.value = formattedNumber;
+        }
+        var form = $(input).closest('form');
+        form.submit(function () {
+          var formattedNumber = iti.getNumber(intlTelInputUtils.numberFormat.INTERNATIONAL);
+          input.value = formattedNumber;
+        });
+      });
+    });
+  </script>
+  <script>
+    document.getElementById('wf-form-reservation-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      let formData = new FormData(event.target);
+
+      fetch('script.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('status').innerHTML = `<p style='color: green;'>${data}</p>`;
+        })
+        .catch(error => {
+          console.error('Error during fetch operation: ', error);
+          document.getElementById('status').innerHTML = `<p style='color: red;'>Error sending email!</p>`;
+        });
+    });
+  </script>
+</body>
+
+</html>

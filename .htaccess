@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^apartmanielegance\.ba$ [NC]
+RewriteRule ^index\.html$ https://apartmanielegance.ba [R=301,L]
