@@ -139,7 +139,8 @@
       margin-top: 44px;
       animation: amlRise 1s ease-out 0.45s both;
     }
-    .aml-btn {
+    /* All button utilities prefixed with .aml-loc to beat the .aml-loc a { color: inherit } reset */
+    .aml-loc .aml-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -150,18 +151,23 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       border: 1px solid transparent;
-      transition: transform .25s ease, background .25s ease, color .25s ease;
+      transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
       cursor: pointer;
     }
-    .aml-btn--primary { background: var(--aml-gold); color: var(--aml-ink); }
-    .aml-btn--primary:hover { background: var(--aml-cream); transform: translateY(-2px); }
-    .aml-btn--ghost {
+    .aml-loc .aml-btn--primary { background: var(--aml-gold); color: var(--aml-ink); }
+    .aml-loc .aml-btn--primary:hover { background: var(--aml-ink); color: var(--aml-cream); transform: translateY(-2px); }
+    .aml-loc .aml-btn--ghost {
       background: transparent;
       color: var(--aml-cream);
       border-color: rgba(245,239,228,0.5);
     }
-    .aml-btn--ghost:hover { border-color: var(--aml-cream); transform: translateY(-2px); }
-    .aml-btn::after {
+    .aml-loc .aml-btn--ghost:hover {
+      background: var(--aml-cream);
+      color: var(--aml-ink);
+      border-color: var(--aml-cream);
+      transform: translateY(-2px);
+    }
+    .aml-loc .aml-btn::after {
       content: "→";
       font-family: var(--aml-display);
       font-size: 16px;
