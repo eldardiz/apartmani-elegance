@@ -463,20 +463,21 @@
       color: var(--aml-cream);
       text-align: center;
     }
-    /* High-specificity override so .aml-loc h2 base color doesn't make CTA heading dark on dark */
+    /* High-specificity override so .aml-loc h2 base reset doesn't kill margin or make CTA heading dark on dark */
     .aml-loc .aml-cta-band h1,
     .aml-loc .aml-cta-band h2,
     .aml-loc .aml-cta-band h3 { color: var(--aml-cream); }
-    .aml-cta-band__title {
+    .aml-loc .aml-cta-band__title {
       color: var(--aml-cream);
       font-family: var(--aml-display);
       font-weight: 500;
       font-size: clamp(30px, 4vw, 48px);
       line-height: 1.18;
       letter-spacing: -0.01em;
-      margin: 0 auto 28px;
+      margin: 0 auto 40px;
       max-width: 760px;
     }
+    .aml-cta-band p { margin-top: 0; }
     .aml-cta-band p {
       font-size: 18px;
       color: rgba(245,239,228,0.78);
