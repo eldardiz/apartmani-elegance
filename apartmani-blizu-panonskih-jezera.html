@@ -512,6 +512,177 @@
     }
     body.aml-page { padding-top: 0; }
     .navbar.aml-nav--hidden { transform: translateY(-110%); }
+
+    /* === INTERACTIVE UPGRADES ====================================== */
+
+    /* --- 1. Google Map embed --- */
+    .aml-loc .aml-map {
+      margin: 64px auto 0;
+      max-width: 1000px;
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(245,239,228,0.18);
+      box-shadow: 24px 24px 0 var(--aml-gold);
+    }
+    .aml-loc .aml-map iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      filter: invert(0.92) hue-rotate(180deg) saturate(0.4);
+    }
+
+    /* --- 2. Animated counters on distance list --- */
+    .aml-distance__item { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .aml-distance__item.aml-in { opacity: 1; transform: translateY(0); }
+    .aml-distance__time .aml-num { font-variant-numeric: tabular-nums; }
+    /* Stagger animation per item via inline transition-delay */
+
+    /* --- 3. FAQ accordion --- */
+    .aml-loc .aml-faq__item {
+      cursor: pointer;
+      transition: background .25s ease;
+    }
+    .aml-loc .aml-faq__item:hover { background: rgba(181,140,75,0.06); }
+    .aml-loc .aml-faq__head {
+      display: grid;
+      grid-template-columns: 1fr 36px;
+      gap: 18px;
+      align-items: start;
+    }
+    .aml-loc .aml-faq__q {
+      margin-bottom: 0;
+      transition: color .25s ease;
+    }
+    .aml-loc .aml-faq__icon {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--aml-gold);
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+      transition: background .25s ease, transform .35s ease;
+      margin-top: 6px;
+    }
+    .aml-loc .aml-faq__icon::before,
+    .aml-loc .aml-faq__icon::after {
+      content: "";
+      position: absolute;
+      background: var(--aml-gold);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .aml-loc .aml-faq__icon::before { width: 12px; height: 1px; }
+    .aml-loc .aml-faq__icon::after  { width: 1px; height: 12px; transition: transform .35s ease; transform: translate(-50%, -50%) rotate(0); }
+    .aml-loc .aml-faq__item.aml-open .aml-faq__icon { background: var(--aml-gold); }
+    .aml-loc .aml-faq__item.aml-open .aml-faq__icon::before,
+    .aml-loc .aml-faq__item.aml-open .aml-faq__icon::after { background: var(--aml-ink); }
+    .aml-loc .aml-faq__item.aml-open .aml-faq__icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+    .aml-loc .aml-faq__panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .4s cubic-bezier(.4,0,.2,1), margin-top .35s ease;
+      margin-top: 0;
+    }
+    .aml-loc .aml-faq__panel > div { overflow: hidden; }
+    .aml-loc .aml-faq__item.aml-open .aml-faq__panel {
+      grid-template-rows: 1fr;
+      margin-top: 18px;
+    }
+
+    /* --- 4. Apartment card hover overlay --- */
+    .aml-loc .aml-ap__media {
+      position: relative;
+      overflow: hidden;
+    }
+    .aml-loc .aml-ap__photo {
+      transition: transform .8s cubic-bezier(.2,.6,.2,1), filter .35s ease;
+    }
+    .aml-loc .aml-ap:hover .aml-ap__photo {
+      transform: scale(1.06);
+    }
+    .aml-loc .aml-ap__overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px 24px;
+      background: linear-gradient(0deg, rgba(26,22,18,0.92) 0%, rgba(26,22,18,0.7) 60%, transparent 100%);
+      color: var(--aml-cream);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      transform: translateY(110%);
+      transition: transform .45s cubic-bezier(.2,.6,.2,1);
+      font-family: var(--aml-body);
+    }
+    .aml-loc .aml-ap:hover .aml-ap__overlay { transform: translateY(0); }
+    .aml-loc .aml-ap__overlay-price {
+      font-family: var(--aml-display);
+      font-style: italic;
+      color: var(--aml-gold);
+      font-size: 18px;
+    }
+    .aml-loc .aml-ap__overlay-cta {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--aml-gold);
+      padding-bottom: 3px;
+    }
+
+    /* --- 5. Sticky side section index --- */
+    .aml-loc .aml-toc {
+      position: fixed;
+      top: 50%;
+      right: 32px;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 14px 0;
+    }
+    @media (max-width: 1100px) { .aml-loc .aml-toc { display: none; } }
+    .aml-loc .aml-toc__item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      color: rgba(26,22,18,0.5);
+      transition: color .3s ease;
+    }
+    .aml-loc .aml-toc__num {
+      font-family: var(--aml-display);
+      font-style: italic;
+      font-size: 13px;
+      width: 24px;
+      text-align: right;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .aml-loc .aml-toc__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(26,22,18,0.35);
+      transition: background .3s ease, transform .3s ease;
+    }
+    .aml-loc .aml-toc__item:hover .aml-toc__num,
+    .aml-loc .aml-toc__item.aml-active .aml-toc__num { opacity: 1; transform: translateX(0); }
+    .aml-loc .aml-toc__item:hover .aml-toc__dot,
+    .aml-loc .aml-toc__item.aml-active .aml-toc__dot { background: var(--aml-gold-deep); transform: scale(1.6); }
+    .aml-loc .aml-toc__item.aml-active { color: var(--aml-ink); }
+    /* TOC color flips on dark sections (handled by JS adding class) */
+    .aml-loc .aml-toc.aml-toc--dark .aml-toc__item { color: rgba(245,239,228,0.5); }
+    .aml-loc .aml-toc.aml-toc--dark .aml-toc__item.aml-active { color: var(--aml-cream); }
+    .aml-loc .aml-toc.aml-toc--dark .aml-toc__dot { background: rgba(245,239,228,0.4); }
+    .aml-loc .aml-toc.aml-toc--dark .aml-toc__item.aml-active .aml-toc__dot { background: var(--aml-gold); }
+
+    /* --- Smooth scroll & section anchors --- */
+    html { scroll-behavior: smooth; }
+    .aml-loc section[data-toc] { scroll-margin-top: 100px; }
   </style>
 
   <script type="application/ld+json">
@@ -674,7 +845,7 @@
     </div>
 
     <!-- ===== INTRO (centered text, large feature photo below) ===== -->
-    <section class="aml-section">
+    <section class="aml-section" id="uvod" data-toc="Uvod" data-toc-num="01" data-toc-theme="light">
       <div class="container aml-intro">
         <span class="aml-marker">01 · Uvod u lokaciju</span>
         <h2 class="aml-h2">Pet minuta vožnje od jezera, dvije od centra. Ista ta bezbriga.</h2>
@@ -690,7 +861,7 @@
     </section>
 
     <!-- ===== DISTANCE TIMELINE (dark band) ===== -->
-    <section class="aml-section aml-section--dark">
+    <section class="aml-section aml-section--dark" id="udaljenosti" data-toc="Udaljenosti" data-toc-num="02" data-toc-theme="dark">
       <div class="container">
         <span class="aml-marker">02 · Udaljenosti od ključnih lokacija</span>
         <h2 class="aml-h2">Sve što treba znati o lokaciji prije nego rezerviraš.</h2>
@@ -737,11 +908,21 @@
             <span class="aml-distance__time">≈ 2 km · 6 min vožnjom</span>
           </li>
         </ul>
+
+        <!-- Embedded Google Map (no API key needed for the public embed URL) -->
+        <div class="aml-map" aria-label="Karta lokacije Apartmana Elegance, Donji Mosnik 7, Tuzla">
+          <iframe
+            src="https://www.google.com/maps?q=Donji+Mosnik+7,+Tuzla,+Bosnia+and+Herzegovina&z=14&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Apartmani Elegance — lokacija na karti"></iframe>
+        </div>
       </div>
     </section>
 
     <!-- ===== ABOUT PANONSKA JEZERA (long-form, centered) ===== -->
-    <section class="aml-section">
+    <section class="aml-section" id="panonska-jezera" data-toc="Panonska jezera" data-toc-num="03" data-toc-theme="light">
       <div class="container">
         <span class="aml-marker">03 · O Panonskim jezerima</span>
         <h2 class="aml-h2">Slano jezero u srcu Bosne, kakvo ne postoji na više od dva mjesta u Evropi.</h2>
@@ -765,7 +946,7 @@
     </section>
 
     <!-- ===== SEASONAL GRID (dark) ===== -->
-    <section class="aml-section aml-section--dark">
+    <section class="aml-section aml-section--dark" id="kada-doci" data-toc="Kada doći" data-toc-num="04" data-toc-theme="dark">
       <div class="container">
         <span class="aml-marker">04 · Kada doći</span>
         <h2 class="aml-h2">Svaka sezona ima svoj razlog.</h2>
@@ -796,7 +977,7 @@
     </section>
 
     <!-- ===== NEIGHBORHOOD ===== -->
-    <section class="aml-section aml-section--soft">
+    <section class="aml-section aml-section--soft" id="susjedstvo" data-toc="Donji Mosnik" data-toc-num="05" data-toc-theme="light">
       <div class="container aml-neigh">
         <span class="aml-marker">05 · Donji Mosnik</span>
         <h2 class="aml-h2">Susjedstvo koje gosti pamte zbog mira.</h2>
@@ -816,7 +997,7 @@
     </section>
 
     <!-- ===== APARTMENT SELECTOR — synced with homepage canonical data ===== -->
-    <section class="aml-section" id="ponuda">
+    <section class="aml-section" id="ponuda" data-toc="Ponuda" data-toc-num="06" data-toc-theme="light">
       <div class="container">
         <span class="aml-marker">06 · Naša ponuda</span>
         <h2 class="aml-h2">Četiri apartmana. Različiti tipovi gostiju. Ista lokacija.</h2>
@@ -826,7 +1007,13 @@
 
           <!-- Deluxe Apartman — 80m², 3 sobe, 1-6 (+2) osoba, od 60€/noć -->
           <a href="deluxe-apartman.html" class="aml-ap">
-            <img class="aml-ap__photo" src="images/deluxe-for-ponuda-jpg-opt.jpg" alt="Deluxe apartman 80m² u Apartmanima Elegance Tuzla, dnevni boravak" loading="lazy">
+            <div class="aml-ap__media">
+              <img class="aml-ap__photo" src="images/deluxe-for-ponuda-jpg-opt.jpg" alt="Deluxe apartman 80m² u Apartmanima Elegance Tuzla, dnevni boravak" loading="lazy">
+              <div class="aml-ap__overlay">
+              <span class="aml-ap__overlay-price">od 60 € / noć</span>
+              <span class="aml-ap__overlay-cta">Provjeri dostupnost</span>
+            </div>
+            </div>
             <div class="aml-ap__body">
               <span class="aml-ap__cat">Najveći apartman · 80m²</span>
               <h3 class="aml-ap__name">Deluxe apartman</h3>
@@ -839,7 +1026,13 @@
 
           <!-- Trosoban apartman — 41m², 3 sobe, 1-4 osoba, od 45€/noć -->
           <a href="trosoban-apartman.html" class="aml-ap">
-            <img class="aml-ap__photo" src="images/trosoban-apt-for-ponuda.jpg" alt="Trosoban apartman u Apartmanima Elegance Tuzla, 41 m²" loading="lazy">
+            <div class="aml-ap__media">
+              <img class="aml-ap__photo" src="images/trosoban-apt-for-ponuda.jpg" alt="Trosoban apartman u Apartmanima Elegance Tuzla, 41 m²" loading="lazy">
+              <div class="aml-ap__overlay">
+              <span class="aml-ap__overlay-price">od 45 € / noć</span>
+              <span class="aml-ap__overlay-cta">Provjeri dostupnost</span>
+            </div>
+            </div>
             <div class="aml-ap__body">
               <span class="aml-ap__cat">Porodice · Grupe</span>
               <h3 class="aml-ap__name">Trosoban apartman</h3>
@@ -852,7 +1045,13 @@
 
           <!-- Dvosoban apartman — 41m², 2 sobe, 1-3 osoba, od 40€/noć -->
           <a href="dvosoban-apartman.html" class="aml-ap">
-            <img class="aml-ap__photo" src="images/dvosoban-apt-for-ponuda.jpg" alt="Dvosoban apartman u Apartmanima Elegance Tuzla" loading="lazy">
+            <div class="aml-ap__media">
+              <img class="aml-ap__photo" src="images/dvosoban-apt-for-ponuda.jpg" alt="Dvosoban apartman u Apartmanima Elegance Tuzla" loading="lazy">
+              <div class="aml-ap__overlay">
+              <span class="aml-ap__overlay-price">od 40 € / noć</span>
+              <span class="aml-ap__overlay-cta">Provjeri dostupnost</span>
+            </div>
+            </div>
             <div class="aml-ap__body">
               <span class="aml-ap__cat">Parovi · Kratki bijeg</span>
               <h3 class="aml-ap__name">Dvosoban apartman</h3>
@@ -865,7 +1064,13 @@
 
           <!-- Dvosoban sa dnevnim boravkom — 41m², 2 sobe + DB, 1-3 osoba, od 40€/noć -->
           <a href="dvosoban-apartman-sa-dnevnim-boravkom.html" class="aml-ap">
-            <img class="aml-ap__photo" src="images/kikin-apt-for-ponuda.jpg" alt="Dvosoban apartman sa dnevnim boravkom u Apartmanima Elegance Tuzla" loading="lazy">
+            <div class="aml-ap__media">
+              <img class="aml-ap__photo" src="images/kikin-apt-for-ponuda.jpg" alt="Dvosoban apartman sa dnevnim boravkom u Apartmanima Elegance Tuzla" loading="lazy">
+              <div class="aml-ap__overlay">
+              <span class="aml-ap__overlay-price">od 40 € / noć</span>
+              <span class="aml-ap__overlay-cta">Provjeri dostupnost</span>
+            </div>
+            </div>
             <div class="aml-ap__body">
               <span class="aml-ap__cat">Duži boravak · Poslovna putovanja</span>
               <h3 class="aml-ap__name">Dvosoban apartman s dnevnim boravkom</h3>
@@ -881,63 +1086,134 @@
     </section>
 
     <!-- ===== FAQ ===== -->
-    <section class="aml-section aml-section--soft">
+    <section class="aml-section aml-section--soft" id="faq" data-toc="FAQ" data-toc-num="07" data-toc-theme="light">
       <div class="container">
         <span class="aml-marker">07 · Često postavljana pitanja</span>
         <h2 class="aml-h2">Šta gosti najčešće pitaju o lokaciji.</h2>
 
         <div class="aml-faq">
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Koliko su Apartmani Elegance udaljeni od Panonskih jezera?</h3>
-            <p class="aml-faq__a">Apartmani Elegance nalaze se na Donjem Mosniku 7, oko 3 kilometra od Panonskih jezera. Vozilom je dolazak ispod 10 minuta, a šetnjom oko 25 minuta uz mirnu rutu kroz susjedstvo.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Koliko su Apartmani Elegance udaljeni od Panonskih jezera?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Apartmani Elegance nalaze se na Donjem Mosniku 7, oko 3 kilometra od Panonskih jezera. Vozilom je dolazak ispod 10 minuta, a šetnjom oko 25 minuta uz mirnu rutu kroz susjedstvo.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Šta su Panonska jezera i po čemu su jedinstvena?</h3>
-            <p class="aml-faq__a">Panonska jezera su sustav slanih jezera u samom centru Tuzle, jedan od rijetkih slanih jezera u kontinentalnom dijelu Evrope. Voda je obogaćena mineralima, a oko jezera je uređen gradski park s plažama, šetnicama, restoranima i sadržajima za djecu.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Šta su Panonska jezera i po čemu su jedinstvena?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Panonska jezera su sustav slanih jezera u samom centru Tuzle, jedan od rijetkih slanih jezera u kontinentalnom dijelu Evrope. Voda je obogaćena mineralima, a oko jezera je uređen gradski park s plažama, šetnicama, restoranima i sadržajima za djecu.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Kada počinje sezona kupanja na Panonskim jezerima?</h3>
-            <p class="aml-faq__a">Glavna sezona kupanja traje od početka juna do kraja septembra, s vrhuncem u julu i augustu. Maj i septembar nude blagu klimu uz manje gužve, a tokom cijele godine možete posjetiti okolne sadržaje, šetnice i restorane.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Kada počinje sezona kupanja na Panonskim jezerima?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Glavna sezona kupanja traje od početka juna do kraja septembra, s vrhuncem u julu i augustu. Maj i septembar nude blagu klimu uz manje gužve, a tokom cijele godine možete posjetiti okolne sadržaje, šetnice i restorane.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Imaju li Apartmani Elegance besplatan parking?</h3>
-            <p class="aml-faq__a">Da. Svi gosti imaju osiguran besplatan parking direktno uz objekat na Donjem Mosniku 7. Možete ostaviti vozilo i prepustiti se gradu pješice ili koristiti automobil za brz dolazak do jezera.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Imaju li Apartmani Elegance besplatan parking?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Da. Svi gosti imaju osiguran besplatan parking direktno uz objekat na Donjem Mosniku 7. Možete ostaviti vozilo i prepustiti se gradu pješice ili koristiti automobil za brz dolazak do jezera.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Koliko je apartman udaljen od centra Tuzle?</h3>
-            <p class="aml-faq__a">Centar Tuzle, Trg slobode i šoping zona, udaljeni su oko 2 kilometra. Vozilom za 5 do 10 minuta, a taksi do centra obično košta između 4 i 6 KM ovisno o dobu dana.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Koliko je apartman udaljen od centra Tuzle?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Centar Tuzle, Trg slobode i šoping zona, udaljeni su oko 2 kilometra. Vozilom za 5 do 10 minuta, a taksi do centra obično košta između 4 i 6 KM ovisno o dobu dana.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Da li je Tuzla International Airport blizu?</h3>
-            <p class="aml-faq__a">Aerodrom Tuzla nalazi se oko 8 kilometara od Apartmana Elegance, oko 15 minuta vožnje. Većina niskotarifnih letova iz Njemačke, Austrije, Švedske i Turske slijeće upravo ovdje.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Da li je Tuzla International Airport blizu?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Aerodrom Tuzla nalazi se oko 8 kilometara od Apartmana Elegance, oko 15 minuta vožnje. Većina niskotarifnih letova iz Njemačke, Austrije, Švedske i Turske slijeće upravo ovdje.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Koji apartman preporučujete porodicama?</h3>
-            <p class="aml-faq__a">Za porodice s djecom preporučujemo <a href="deluxe-apartman.html" style="color:var(--aml-gold-deep); border-bottom:1px solid var(--aml-gold-deep);">Deluxe apartman</a> od 80 m² (do 6 + 2 osobe) ili <a href="trosoban-apartman.html" style="color:var(--aml-gold-deep); border-bottom:1px solid var(--aml-gold-deep);">Trosoban apartman</a> za grupe do 4 osobe.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Koji apartman preporučujete porodicama?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Za porodice s djecom preporučujemo <a href="deluxe-apartman.html" style="color:var(--aml-gold-deep); border-bottom:1px solid var(--aml-gold-deep);">Deluxe apartman</a> od 80 m² (do 6 + 2 osobe) ili <a href="trosoban-apartman.html" style="color:var(--aml-gold-deep); border-bottom:1px solid var(--aml-gold-deep);">Trosoban apartman</a> za grupe do 4 osobe.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Imaju li apartmani klimu, Wi-Fi i mašinu za rublje?</h3>
-            <p class="aml-faq__a">Svi apartmani imaju klima uređaj, besplatan brzi Wi-Fi i mašinu za pranje rublja, kao i kompletno opremljenu kuhinju s posuđem. Posteljina i ručnici su uračunati u cijenu.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Imaju li apartmani klimu, Wi-Fi i mašinu za rublje?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Svi apartmani imaju klima uređaj, besplatan brzi Wi-Fi i mašinu za pranje rublja, kao i kompletno opremljenu kuhinju s posuđem. Posteljina i ručnici su uračunati u cijenu.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Mogu li rezervisati direktno i izbjeći proviziju?</h3>
-            <p class="aml-faq__a">Direktna rezervacija putem našeg sajta ili telefona omogućava povoljniju cijenu od one na platformama, jer izbjegavamo proviziju od 15 do 18 posto koju zaračunavaju Booking i Airbnb. Pozovite +387 61 944 061 ili posjetite stranicu <a href="rezervacija.html" style="color:var(--aml-gold-deep); border-bottom:1px solid var(--aml-gold-deep);">Rezervacija</a>.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Mogu li rezervisati direktno i izbjeći proviziju?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Direktna rezervacija putem našeg sajta ili telefona omogućava povoljniju cijenu od one na platformama, jer izbjegavamo proviziju od 15 do 18 posto koju zaračunavaju Booking i Airbnb. Pozovite +387 61 944 061 ili posjetite stranicu <a href="rezervacija.html" style="color:var(--aml-gold-deep); border-bottom:1px solid var(--aml-gold-deep);">Rezervacija</a>.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Šta još mogu raditi u Tuzli osim posjete jezerima?</h3>
-            <p class="aml-faq__a">U pješačkoj udaljenosti su Trg slobode, Stari grad Tuzla, BBI Center i restorani na Slanoj banji. Vrijedi posjetiti Muzej istočne Bosne, Sportski centar Tušanj i, ako ostajete duže, izlet do Bijelih voda ili Konjuha.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Šta još mogu raditi u Tuzli osim posjete jezerima?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">U pješačkoj udaljenosti su Trg slobode, Stari grad Tuzla, BBI Center i restorani na Slanoj banji. Vrijedi posjetiti Muzej istočne Bosne, Sportski centar Tušanj i, ako ostajete duže, izlet do Bijelih voda ili Konjuha.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Da li primate kućne ljubimce?</h3>
-            <p class="aml-faq__a">Politika oko ljubimaca dogovara se individualno prije rezervacije. Pozovite nas na +387 61 944 061 ili pošaljite poruku putem Booking ili Airbnb platforme prije nego potvrdite termin.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Da li primate kućne ljubimce?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Politika oko ljubimaca dogovara se individualno prije rezervacije. Pozovite nas na +387 61 944 061 ili pošaljite poruku putem Booking ili Airbnb platforme prije nego potvrdite termin.</p></div>
+            </div>
           </div>
           <div class="aml-faq__item">
-            <h3 class="aml-faq__q">Koji je najbolji način dolaska iz Sarajeva ili Zagreba?</h3>
-            <p class="aml-faq__a">Iz Sarajeva je vožnja vozilom oko 2 sata preko Olova ili autoputa do Doboja. Iz Zagreba je oko 4 sata kroz Slavoniju i prelaz Slavonski Šamac. Autobuska stanica Tuzle je samo 1,5 km od apartmana.</p>
+            <div class="aml-faq__head">
+              <h3 class="aml-faq__q">Koji je najbolji način dolaska iz Sarajeva ili Zagreba?</h3>
+              <span class="aml-faq__icon" aria-hidden="true"></span>
+            </div>
+            <div class="aml-faq__panel">
+              <div><p class="aml-faq__a">Iz Sarajeva je vožnja vozilom oko 2 sata preko Olova ili autoputa do Doboja. Iz Zagreba je oko 4 sata kroz Slavoniju i prelaz Slavonski Šamac. Autobuska stanica Tuzle je samo 1,5 km od apartmana.</p></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Sticky section index (only renders on >=1100px viewports per CSS) -->
+    <nav class="aml-toc" aria-label="Sadržaj stranice">
+      <a class="aml-toc__item" href="#uvod" data-toc-target="uvod"><span class="aml-toc__num">01</span><span class="aml-toc__dot"></span></a>
+      <a class="aml-toc__item" href="#udaljenosti" data-toc-target="udaljenosti"><span class="aml-toc__num">02</span><span class="aml-toc__dot"></span></a>
+      <a class="aml-toc__item" href="#panonska-jezera" data-toc-target="panonska-jezera"><span class="aml-toc__num">03</span><span class="aml-toc__dot"></span></a>
+      <a class="aml-toc__item" href="#kada-doci" data-toc-target="kada-doci"><span class="aml-toc__num">04</span><span class="aml-toc__dot"></span></a>
+      <a class="aml-toc__item" href="#susjedstvo" data-toc-target="susjedstvo"><span class="aml-toc__num">05</span><span class="aml-toc__dot"></span></a>
+      <a class="aml-toc__item" href="#ponuda" data-toc-target="ponuda"><span class="aml-toc__num">06</span><span class="aml-toc__dot"></span></a>
+      <a class="aml-toc__item" href="#faq" data-toc-target="faq"><span class="aml-toc__num">07</span><span class="aml-toc__dot"></span></a>
+    </nav>
 
     <!-- ===== FINAL CTA BAND ===== -->
     <section class="aml-cta-band">
@@ -1030,6 +1306,74 @@
           ticking = true;
         }
       }, { passive: true });
+    })();
+  </script>
+
+  <!-- =================================================================
+       Page interactions: scroll-revealed distance items, FAQ accordion,
+       sticky TOC with active-section tracking + theme flip
+       ================================================================= -->
+  <script>
+    (function () {
+
+      // 1. Reveal distance items with stagger on scroll into view
+      var distItems = document.querySelectorAll('.aml-distance__item');
+      if (distItems.length && 'IntersectionObserver' in window) {
+        var distObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              var i = Array.prototype.indexOf.call(distItems, e.target);
+              e.target.style.transitionDelay = (i * 70) + 'ms';
+              e.target.classList.add('aml-in');
+              distObs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        distItems.forEach(function (el) { distObs.observe(el); });
+      } else {
+        distItems.forEach(function (el) { el.classList.add('aml-in'); });
+      }
+
+      // 2. FAQ accordion
+      document.querySelectorAll('.aml-faq__item').forEach(function (item) {
+        var head = item.querySelector('.aml-faq__head');
+        if (!head) return;
+        head.setAttribute('role', 'button');
+        head.setAttribute('tabindex', '0');
+        var toggle = function () { item.classList.toggle('aml-open'); };
+        head.addEventListener('click', toggle);
+        head.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        });
+      });
+
+      // 3. Sticky TOC: track active section + flip theme on dark bands
+      var toc = document.querySelector('.aml-toc');
+      var sections = Array.prototype.slice.call(document.querySelectorAll('section[data-toc]'));
+      if (toc && sections.length && 'IntersectionObserver' in window) {
+        var tocItems = {};
+        document.querySelectorAll('.aml-toc__item').forEach(function (a) {
+          tocItems[a.getAttribute('data-toc-target')] = a;
+        });
+        var visible = new Map();
+        var sectionObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { visible.set(e.target.id, e.intersectionRatio); });
+          var best = null, bestRatio = 0;
+          visible.forEach(function (ratio, id) {
+            if (ratio > bestRatio) { bestRatio = ratio; best = id; }
+          });
+          Object.values(tocItems).forEach(function (a) { a.classList.remove('aml-active'); });
+          if (best && tocItems[best]) {
+            tocItems[best].classList.add('aml-active');
+            var sec = document.getElementById(best);
+            var theme = sec && sec.getAttribute('data-toc-theme');
+            if (theme === 'dark') toc.classList.add('aml-toc--dark');
+            else toc.classList.remove('aml-toc--dark');
+          }
+        }, { threshold: [0.2, 0.5, 0.8], rootMargin: '-15% 0px -30% 0px' });
+        sections.forEach(function (s) { sectionObs.observe(s); });
+      }
+
     })();
   </script>
 </body>
