@@ -66,6 +66,10 @@
           <form id="wf-form-reservation-form" name="wf-form-reservation-form" data-name="reservation-form" method="get"
             class="form" data-wf-page-id="65f81e02e6d9e47bc2db7e69"
             data-wf-element-id="9a51834f-f288-3a6b-5cad-1135d288d9ca">
+            <input type="hidden" name="access_key" value="6dc4b28f-d7f3-4b53-bb33-cc7f5f2c8899">
+            <input type="hidden" name="subject" value="Novi upit sa sajta Apartmani Elegance">
+            <input type="hidden" name="from_name" value="Apartmani Elegance Web Form">
+            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
             <div class="form-flex-inputs">
               <div class="form-input flex-input">
                 <label for="name" class="field-label">Ime i prezime</label>
@@ -582,18 +586,25 @@
       event.preventDefault();
 
       let formData = new FormData(event.target);
+      let status = document.getElementById('status');
+      status.innerHTML = `<p style='color: #f5f5f5;'>Slanje upita...</p>`;
 
-      fetch('script.php', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
       })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-          document.getElementById('status').innerHTML = `<p style='color: green;'>${data}</p>`;
+          if (data.success) {
+            event.target.reset();
+            status.innerHTML = `<p style='color: green;'>Hvala, vaš upit je uspješno poslan. Javit ćemo vam se uskoro.</p>`;
+          } else {
+            status.innerHTML = `<p style='color: red;'>Slanje nije uspjelo. Molimo pišite nam na apartmanielegance@gmail.com.</p>`;
+          }
         })
         .catch(error => {
           console.error('Error during fetch operation: ', error);
-          document.getElementById('status').innerHTML = `<p style='color: red;'>Error sending email!</p>`;
+          status.innerHTML = `<p style='color: red;'>Slanje nije uspjelo. Molimo pišite nam na apartmanielegance@gmail.com.</p>`;
         });
     });
   </script>
