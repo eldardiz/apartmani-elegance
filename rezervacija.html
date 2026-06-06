@@ -589,9 +589,15 @@
       let status = document.getElementById('status');
       status.innerHTML = `<p style='color: #f5f5f5;'>Slanje upita...</p>`;
 
+      let json = JSON.stringify(Object.fromEntries(formData));
+
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
       })
         .then(response => response.json())
         .then(data => {
