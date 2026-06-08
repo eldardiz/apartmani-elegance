@@ -18,6 +18,8 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/apartmani-elegance.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" type="text/css">
+  <link href="css/calendar.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -37,6 +39,30 @@
 </head>
 
 <body>
+  <div id="ael-cal-mount"></div>
+
+  <section id="ael-contact-section">
+    <div class="ael-contact">
+      <h2 class="ael-contact__title">Imate pitanje?</h2>
+      <p class="ael-contact__sub">Pišite nam, rado ćemo odgovoriti na sva pitanja o apartmanima, dostupnosti i cijenama.</p>
+      <form id="ael-kontakt-form" class="ael-contact__form">
+        <input type="hidden" name="access_key" value="6dc4b28f-d7f3-4b53-bb33-cc7f5f2c8899">
+        <input type="hidden" name="subject" value="Kontakt poruka sa sajta Apartmani Elegance">
+        <input type="hidden" name="from_name" value="Apartmani Elegance Web">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+        <input type="text" name="name" placeholder="Vaše ime" required class="ael-contact__input">
+        <input type="email" name="email" placeholder="E-mail adresa" required class="ael-contact__input">
+        <textarea name="message" placeholder="Vaša poruka..." rows="4" required class="ael-contact__textarea"></textarea>
+        <button type="submit" class="ael-contact__btn">Pošalji poruku</button>
+      </form>
+      <div id="ael-kontakt-success" class="ael-contact__success">
+        <div class="ael-contact__success-icon">&#10003;</div>
+        <h3>Poruka poslana</h3>
+        <p>Javit ćemo vam se uskoro na vašu e-mail adresu.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="all-section rezervacija-hero">
     <div class="container rezervacija-container">
       <div class="rezervacija-text-wrapper">
@@ -620,7 +646,29 @@
           status.innerHTML = `<p style='color: red;'>Slanje nije uspjelo. Molimo pišite nam na apartmanielegance@gmail.com.</p>`;
         });
     });
+
+    // Simple contact form (Web3Forms)
+    document.getElementById('ael-kontakt-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = this.querySelector('.ael-contact__btn');
+      btn.textContent = 'Slanje...';
+      btn.disabled = true;
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(this)))
+      }).then(function(r){ return r.json(); }).then(function(data){
+        if (data.success) {
+          document.getElementById('ael-kontakt-form').style.display = 'none';
+          document.getElementById('ael-kontakt-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Pošalji poruku'; btn.disabled = false;
+        }
+      }).catch(function(){ btn.textContent = 'Pošalji poruku'; btn.disabled = false; });
+    });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="js/calendar.js"></script>
 </body>
 
 </html>
