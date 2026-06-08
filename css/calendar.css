@@ -1,0 +1,197 @@
+/* Apartmani Elegance — availability calendar
+ * Accent: #E05C1B (orange). Pairs Flatpickr defaults with the site's
+ * cream/dark editorial look. Scoped under #ael-cal so it never leaks
+ * into the Webflow styles. */
+
+:root {
+  --ael-accent: #E05C1B;
+  --ael-accent-dark: #b8460f;
+  --ael-ink: #1a1a1a;
+  --ael-muted: #6b6b6b;
+  --ael-line: #e7e2d8;
+  --ael-booked: #e7503f;
+}
+
+#ael-cal-section {
+  background: #faf8f3;
+  padding: 72px 5vw;
+}
+
+#ael-cal {
+  max-width: 980px;
+  margin: 0 auto;
+  font-family: "Open Sans", "Lato", sans-serif;
+  color: var(--ael-ink);
+}
+
+.ael-cal__head { text-align: center; margin-bottom: 28px; }
+
+.ael-cal__title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 4vw, 40px);
+  margin: 0 0 10px;
+  color: var(--ael-ink);
+}
+
+.ael-cal__sub {
+  font-size: 16px;
+  color: var(--ael-muted);
+  margin: 0 auto;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* ---- apartment tabs ---- */
+.ael-cal__tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.ael-cal__tab {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+  padding: 14px 16px;
+  border: 1.5px solid var(--ael-line);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color .18s, box-shadow .18s, transform .18s;
+}
+.ael-cal__tab:hover { border-color: var(--ael-accent); transform: translateY(-1px); }
+.ael-cal__tab.is-active {
+  border-color: var(--ael-accent);
+  box-shadow: 0 0 0 3px rgba(224, 92, 27, .14);
+}
+.ael-cal__tab-name { font-weight: 700; font-size: 15px; }
+.ael-cal__tab-meta { font-size: 13px; color: var(--ael-muted); }
+
+/* ---- calendar + summary grid ---- */
+.ael-cal__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.ael-cal__cal {
+  background: #fff;
+  border: 1px solid var(--ael-line);
+  border-radius: 16px;
+  padding: 14px;
+}
+#ael-cal-input { display: none; } /* inline picker renders into the sibling */
+
+/* legend */
+.ael-cal__legend {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ael-muted);
+}
+.ael-cal__legend span { display: inline-flex; align-items: center; gap: 7px; }
+.ael-cal__dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.ael-cal__dot--free { background: #2e9e5b; }
+.ael-cal__dot--booked { background: var(--ael-booked); }
+
+/* ---- summary / CTA card ---- */
+.ael-cal__summary {
+  background: #fff;
+  border: 1px solid var(--ael-line);
+  border-radius: 16px;
+  padding: 22px;
+}
+.ael-cal__summary-text { font-size: 15px; line-height: 1.6; color: var(--ael-ink); }
+.ael-cal__total {
+  margin-top: 14px;
+  font-size: 17px;
+  min-height: 24px;
+  color: var(--ael-ink);
+}
+.ael-cal__total strong { color: var(--ael-accent-dark); font-size: 22px; }
+.ael-cal__total-note { font-size: 13px; color: var(--ael-muted); }
+
+.ael-cal__ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+
+.ael-cal__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: filter .18s, opacity .18s;
+}
+.ael-cal__btn--wa { background: #25D366; color: #08361b; }
+.ael-cal__btn--wa:hover { filter: brightness(.95); }
+.ael-cal__btn--mail { background: var(--ael-accent); color: #fff; }
+.ael-cal__btn--mail:hover { filter: brightness(.95); }
+.ael-cal__btn.is-disabled { opacity: .45; pointer-events: none; }
+
+.ael-cal__phone {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ael-muted);
+}
+.ael-cal__phone a { color: var(--ael-accent-dark); font-weight: 700; text-decoration: none; }
+
+#ael-cal.is-loading .ael-cal__cal { opacity: .55; }
+.ael-cal__nofeed-note { display: none; }
+.ael-cal--nofeed .ael-cal__nofeed-note {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--ael-muted);
+  text-align: center;
+}
+
+/* ---- Flatpickr accent overrides ---- */
+#ael-cal .flatpickr-calendar { box-shadow: none; width: 100%; max-width: 100%; }
+#ael-cal .flatpickr-day {
+  border-radius: 8px;
+  color: #2e9e5b;            /* available = green ink */
+}
+#ael-cal .flatpickr-day.today { border-color: var(--ael-accent); }
+#ael-cal .flatpickr-day.selected,
+#ael-cal .flatpickr-day.startRange,
+#ael-cal .flatpickr-day.endRange {
+  background: var(--ael-accent);
+  border-color: var(--ael-accent);
+  color: #fff;
+}
+#ael-cal .flatpickr-day.inRange {
+  background: rgba(224, 92, 27, .12);
+  border-color: rgba(224, 92, 27, .12);
+  box-shadow: -5px 0 0 rgba(224, 92, 27, .12), 5px 0 0 rgba(224, 92, 27, .12);
+  color: var(--ael-accent-dark);
+}
+/* booked days = red, struck through (genuinely unavailable) */
+#ael-cal .flatpickr-day.ael-booked {
+  color: var(--ael-booked) !important;
+  background: rgba(231, 80, 63, .08);
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+/* generic disabled (past dates, out of range) = muted grey, not "booked" */
+#ael-cal .flatpickr-day.flatpickr-disabled:not(.ael-booked) {
+  color: #c4c4c4 !important;
+  background: transparent;
+  cursor: default;
+}
+#ael-cal .flatpickr-day.prevMonthDay,
+#ael-cal .flatpickr-day.nextMonthDay { color: #c9c9c9; }
+
+/* ---- desktop layout ---- */
+@media (min-width: 768px) {
+  .ael-cal__tabs { grid-template-columns: repeat(4, 1fr); }
+  .ael-cal__body { grid-template-columns: 1.5fr 1fr; }
+}
