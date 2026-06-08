@@ -230,7 +230,13 @@
 
   function init() {
     var mount = document.getElementById("ael-cal-mount");
-    if (mount) mount.outerHTML = buildHTML();
+    if (mount) {
+      var dark = mount.getAttribute("data-dark") === "1";
+      var html = buildHTML();
+      if (dark) html = html.replace('id="ael-cal-section" class="all-section"',
+        'id="ael-cal-section" class="all-section ael-cal--dark"');
+      mount.outerHTML = html;
+    }
 
     el.root = $("ael-cal");
     if (!el.root || !window.flatpickr) return;

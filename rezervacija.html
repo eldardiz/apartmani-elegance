@@ -38,46 +38,68 @@
   </style>
 </head>
 
-<body>
-  <div id="ael-cal-mount"></div>
-
-  <section id="ael-contact-section">
-    <div class="ael-contact">
-      <h2 class="ael-contact__title">Imate pitanje?</h2>
-      <p class="ael-contact__sub">Pišite nam, rado ćemo odgovoriti na sva pitanja o apartmanima, dostupnosti i cijenama.</p>
-      <form id="ael-kontakt-form" class="ael-contact__form">
-        <input type="hidden" name="access_key" value="6dc4b28f-d7f3-4b53-bb33-cc7f5f2c8899">
-        <input type="hidden" name="subject" value="Kontakt poruka sa sajta Apartmani Elegance">
-        <input type="hidden" name="from_name" value="Apartmani Elegance Web">
-        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
-        <input type="text" name="name" placeholder="Vaše ime" required class="ael-contact__input">
-        <input type="email" name="email" placeholder="E-mail adresa" required class="ael-contact__input">
-        <textarea name="message" placeholder="Vaša poruka..." rows="4" required class="ael-contact__textarea"></textarea>
-        <button type="submit" class="ael-contact__btn">Pošalji poruku</button>
-      </form>
-      <div id="ael-kontakt-success" class="ael-contact__success">
-        <div class="ael-contact__success-icon">&#10003;</div>
-        <h3>Poruka poslana</h3>
-        <p>Javit ćemo vam se uskoro na vašu e-mail adresu.</p>
+<body class="body">
+  <div data-animation="over-left" class="navbar second w-nav" data-easing2="ease" data-easing="ease"
+    data-collapse="medium" data-w-id="39b51dbc-db1a-3469-2649-4f86d199ac94" role="banner" data-duration="350"
+    data-doc-height="1">
+    <div class="navbar-container w-container">
+      <div class="brand-wrapper">
+        <a href="index.html" class="brand w-nav-brand"><img
+            src="images/elegance-logo-navbar.svg" loading="lazy" alt="Apartmani Elegance Tuzla logo" class="image-25"></a>
+      </div>
+      <nav role="navigation" class="nav-menu w-nav-menu">
+        <a href="index.html" class="navbar-link w-inline-block">
+          <div class="navbar-link-text">Naslovna</div>
+          <div class="navbar-underline"></div>
+        </a>
+        <a href="index.html#ponuda-apartmana" class="navbar-link w-inline-block">
+          <div class="navbar-link-text">Ponuda</div>
+          <div class="navbar-underline"></div>
+        </a>
+        <a href="index.html#recenzije" class="navbar-link w-inline-block">
+          <div class="navbar-link-text">Recenzije</div>
+          <div class="navbar-underline"></div>
+        </a>
+        <a href="index.html#lokacija" class="navbar-link w-inline-block">
+          <div class="navbar-link-text">Lokacija</div>
+          <div class="navbar-underline"></div>
+        </a>
+        <a href="index.html#pravilnik" class="navbar-link w-inline-block">
+          <div class="navbar-link-text">Pravilnik</div>
+          <div class="navbar-underline"></div>
+        </a>
+      </nav>
+      <div class="nav-col3-wrapper">
+        <a href="rezervacija.html" class="yellow-button navbar-yellow-button w-inline-block">
+          <div class="button-content">
+            <div class="button-text navbar-button-text">Rezervacija</div>
+          </div>
+        </a>
+        <a href="https://www.booking.com/hotel/ba/apartmani-tuzla-tuzla.hr.html"
+          class="booking-link w-inline-block"><img src="images/booking-logo.svg" loading="lazy" width="48" height="48"
+            alt="booking.com-logo" class="image"></a>
+        <div data-w-id="39b51dbc-db1a-3469-2649-4f86d199acb4" class="menu-button w-nav-button"><img
+            src="images/menu-elegance.svg" loading="lazy" alt="" class="menu"></div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <div id="ael-cal-mount" data-dark="1"></div>
 
   <section class="all-section rezervacija-hero">
     <div class="container rezervacija-container">
       <div class="rezervacija-text-wrapper">
-        <h2 class="main-h2 rezervacija-h2">Rezerviši svoj apartman</h2>
+        <h2 class="main-h2 rezervacija-h2">Pošalji upit ili rezerviši</h2>
         <div class="steps-content-wrapper">
-          <div class="rezervacija-below-h2">Kako do rezervacije?</div>
+          <div class="rezervacija-below-h2">Kako funkcionira?</div>
           <div class="step-rezervacija"><img src="images/number-1-icon.svg" loading="lazy" alt="">
-            <div class="step-text-rez">Odaberi svoj apartman</div>
+            <div class="step-text-rez">Odaberi apartman i željene datume</div>
           </div>
           <div class="step-rezervacija"><img src="images/number-2-icon.svg" loading="lazy" alt="">
-            <div class="step-text-rez">Popuni formu sa podacima na web stranici</div>
+            <div class="step-text-rez">Popuni formu i pošalji upit direktno nama</div>
           </div>
           <div class="step-rezervacija"><img src="images/number-3-icon.svg" loading="lazy" alt="">
-            <div class="step-text-rez">Kada vlasnici provjere čekirani datum, dobiti ćete povratni e-mail sa odgovorom i
-              potvrdom.</div>
+            <div class="step-text-rez">Javit ćemo se u roku od par sati s potvrdom i svim detaljima.</div>
           </div>
         </div>
         <a data-w-id="34ccdd58-61f5-e50a-3ff9-e103c6be39b9" href="index.html"
@@ -647,25 +669,6 @@
         });
     });
 
-    // Simple contact form (Web3Forms)
-    document.getElementById('ael-kontakt-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = this.querySelector('.ael-contact__btn');
-      btn.textContent = 'Slanje...';
-      btn.disabled = true;
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(this)))
-      }).then(function(r){ return r.json(); }).then(function(data){
-        if (data.success) {
-          document.getElementById('ael-kontakt-form').style.display = 'none';
-          document.getElementById('ael-kontakt-success').style.display = 'block';
-        } else {
-          btn.textContent = 'Pošalji poruku'; btn.disabled = false;
-        }
-      }).catch(function(){ btn.textContent = 'Pošalji poruku'; btn.disabled = false; });
-    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="js/calendar.js"></script>

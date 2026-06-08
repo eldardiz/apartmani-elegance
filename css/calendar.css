@@ -3,6 +3,81 @@
  * cream/dark editorial look. Scoped under #ael-cal so it never leaks
  * into the Webflow styles. */
 
+/* ================================================================
+   DARK MODE  (.ael-cal--dark on #ael-cal-section)
+   Used on rezervacija.html via data-dark="1" on the mount div.
+   ================================================================ */
+
+#ael-cal-section.ael-cal--dark {
+  background: #0f0f0f;
+}
+#ael-cal-section.ael-cal--dark .ael-cal__title { color: #f0ebe0; }
+#ael-cal-section.ael-cal--dark .ael-cal__sub   { color: #9a9a8a; }
+
+#ael-cal-section.ael-cal--dark .ael-cal__tab {
+  background: #1a1a1a;
+  border-color: #2e2e2e;
+  color: #f0ebe0;
+}
+#ael-cal-section.ael-cal--dark .ael-cal__tab:hover  { border-color: var(--ael-accent); }
+#ael-cal-section.ael-cal--dark .ael-cal__tab.is-active {
+  border-color: var(--ael-accent);
+  box-shadow: 0 0 0 3px rgba(224,92,27,.18);
+}
+#ael-cal-section.ael-cal--dark .ael-cal__tab-name { color: #f0ebe0; }
+#ael-cal-section.ael-cal--dark .ael-cal__tab-meta { color: #7a7a6a; }
+
+#ael-cal-section.ael-cal--dark .ael-cal__cal,
+#ael-cal-section.ael-cal--dark .ael-cal__summary {
+  background: #1a1a1a;
+  border-color: #2e2e2e;
+}
+#ael-cal-section.ael-cal--dark .ael-cal__summary-text { color: #d0ccc0; }
+#ael-cal-section.ael-cal--dark .ael-cal__total        { color: #d0ccc0; }
+#ael-cal-section.ael-cal--dark .ael-cal__phone        { color: #7a7a6a; }
+#ael-cal-section.ael-cal--dark .ael-cal__phone a      { color: var(--ael-accent); }
+#ael-cal-section.ael-cal--dark .ael-cal__legend       { color: #7a7a6a; }
+#ael-cal-section.ael-cal--dark .ael-cal__nofeed-note  { color: #7a7a6a; }
+
+/* Flatpickr dark overrides */
+#ael-cal-section.ael-cal--dark .flatpickr-calendar {
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+  box-shadow: none;
+}
+#ael-cal-section.ael-cal--dark .flatpickr-months,
+#ael-cal-section.ael-cal--dark .flatpickr-month { background: #1a1a1a; }
+#ael-cal-section.ael-cal--dark .flatpickr-current-month,
+#ael-cal-section.ael-cal--dark .flatpickr-current-month .cur-month,
+#ael-cal-section.ael-cal--dark .flatpickr-current-month input.cur-year { color: #f0ebe0; }
+#ael-cal-section.ael-cal--dark .flatpickr-prev-month svg,
+#ael-cal-section.ael-cal--dark .flatpickr-next-month svg { fill: #f0ebe0; }
+#ael-cal-section.ael-cal--dark .flatpickr-weekday { color: #7a7a6a; background: #1a1a1a; }
+#ael-cal-section.ael-cal--dark .flatpickr-day {
+  color: #2e9e5b;
+}
+#ael-cal-section.ael-cal--dark .flatpickr-day:hover:not(.flatpickr-disabled):not(.ael-booked) {
+  background: #2a2a2a;
+}
+#ael-cal-section.ael-cal--dark .flatpickr-day.selected,
+#ael-cal-section.ael-cal--dark .flatpickr-day.startRange,
+#ael-cal-section.ael-cal--dark .flatpickr-day.endRange {
+  background: var(--ael-accent);
+  border-color: var(--ael-accent);
+  color: #fff;
+}
+#ael-cal-section.ael-cal--dark .flatpickr-day.inRange {
+  background: rgba(224,92,27,.18);
+  border-color: rgba(224,92,27,.18);
+  box-shadow: -5px 0 0 rgba(224,92,27,.18), 5px 0 0 rgba(224,92,27,.18);
+  color: #f0ebe0;
+}
+#ael-cal-section.ael-cal--dark .flatpickr-day.flatpickr-disabled:not(.ael-booked) { color: #3a3a3a !important; }
+#ael-cal-section.ael-cal--dark .flatpickr-day.ael-booked  { color: var(--ael-booked) !important; background: rgba(231,80,63,.1); }
+#ael-cal-section.ael-cal--dark .flatpickr-day.prevMonthDay,
+#ael-cal-section.ael-cal--dark .flatpickr-day.nextMonthDay { color: #2e2e2e; }
+#ael-cal-section.ael-cal--dark .flatpickr-day.today { border-color: var(--ael-accent); }
+
 :root {
   --ael-accent: #E05C1B;
   --ael-accent-dark: #b8460f;
