@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "sta-posjetiti-u-tuzli",
+    "title": "Šta posjetiti u Tuzli: 10 mjesta koja vrijedi vidjeti",
+    "excerpt": "Tuzla nudi mnogo više od Panonskih jezera. Otkrijte stari grad, Sol, Muzej istočne Bosne i skrivene lokalne gemove.",
+    "date": "2026-06-09",
+    "category": "Vodič po Tuzli",
+    "image": "../images/blog/sta-posjetiti-u-tuzli-hero.jpg"
+  },
+  {
+    "slug": "panonska-jezera-tuzla",
+    "title": "Panonska jezera Tuzla: sve što trebate znati prije posjete",
+    "excerpt": "Panonska jezera su jedinstven prirodni fenomen, slana jezera usred Bosne. Saznajte kako doći, šta ponijeti i gdje odsjesti.",
+    "date": "2026-06-09",
+    "category": "Tuzla i okolina",
+    "image": "../images/blog/panonska-jezera-tuzla-hero.jpg"
+  },
+  {
+    "slug": "vikend-u-tuzli",
+    "title": "Vikend u Tuzli: savršen 2-dnevni itinerar",
+    "excerpt": "Planirate kratki odmor? Ovaj itinerar pokriva sve: Panonska jezera, stari grad, najljepše kafane i gdje spavati.",
+    "date": "2026-06-09",
+    "category": "Putni vodiči",
+    "image": "../images/blog/vikend-u-tuzli-hero.jpg"
+  }
+]
