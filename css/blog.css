@@ -80,6 +80,21 @@
   object-fit: cover;
 }
 
+.ael-blog-hero__credit {
+  max-width: 900px;
+  margin: 8px auto 0;
+  font-family: var(--ael-font-ui);
+  font-size: 11px;
+  font-weight: var(--ael-weight-light);
+  color: var(--ael-color-ghost);
+  text-align: right;
+}
+.ael-blog-hero__credit a {
+  color: var(--ael-color-gold);
+  text-decoration: none;
+}
+.ael-blog-hero__credit a:hover { text-decoration: underline; }
+
 /* ================================================================
    PROSE BODY  (Open Sans — long-form article reading)
    ================================================================ */
