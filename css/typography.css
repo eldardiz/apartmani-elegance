@@ -1,0 +1,164 @@
+/* ================================================================
+   Apartmani Elegance — Typography System
+   Single source of truth for all type decisions.
+   Load this on every page, before blog.css and any other custom CSS.
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   1. TOKENS (CSS Custom Properties)
+   ---------------------------------------------------------------- */
+:root {
+  /* Font families */
+  --ael-font-display:  "Playfair Display", Georgia, serif;
+  --ael-font-ui:       "Josefin Sans", sans-serif;
+  --ael-font-body:     "Josefin Sans", sans-serif;
+  --ael-font-number:   "Lato", sans-serif;
+
+  /* Type scale — fluid where needed */
+  --ael-text-xs:    11px;
+  --ael-text-sm:    13px;
+  --ael-text-base:  14px;
+  --ael-text-md:    16px;
+  --ael-text-lg:    18px;
+  --ael-text-xl:    clamp(20px, 2.5vw, 24px);
+  --ael-text-2xl:   clamp(24px, 3.5vw, 32px);
+  --ael-text-3xl:   clamp(28px, 4vw, 40px);
+  --ael-text-4xl:   clamp(36px, 5vw, 56px);
+
+  /* Font weights */
+  --ael-weight-light:   300;
+  --ael-weight-regular: 400;
+  --ael-weight-medium:  500;
+  --ael-weight-semibold: 600;
+  --ael-weight-bold:    700;
+
+  /* Line heights */
+  --ael-lh-tight:  1.2;
+  --ael-lh-snug:   1.4;
+  --ael-lh-normal: 1.6;
+  --ael-lh-loose:  1.8;
+
+  /* Letter spacing */
+  --ael-ls-tighter: -0.01em;
+  --ael-ls-none:     0;
+  --ael-ls-wide:     0.05em;
+  --ael-ls-wider:    0.1em;
+  --ael-ls-widest:   0.15em;
+
+  /* Colours */
+  --ael-color-ink:    #1a1a1a;
+  --ael-color-muted:  #6b6b6b;
+  --ael-color-ghost:  #9a9a8a;
+  --ael-color-cream:  #fff5ea;
+  --ael-color-gold:   #b98b2c;
+  --ael-color-dark:   #070707;
+  --ael-color-surface:#faf8f3;
+  --ael-color-line:   #e7e2d8;
+
+  /* Spacing */
+  --ael-section-v:    72px;
+  --ael-section-h:    5vw;
+  --ael-prose-width:  740px;
+}
+
+/* Global heading weight reset — Playfair Display should always be 400 */
+h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+
+/* ----------------------------------------------------------------
+   2. SEMANTIC COMPONENT CLASSES
+   Use these instead of hardcoding font-family / font-size combos.
+   ---------------------------------------------------------------- */
+
+/* — Display headings (Playfair Display) — */
+
+.ael-heading-hero {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-4xl);
+  font-weight: var(--ael-weight-regular);
+  line-height: var(--ael-lh-tight);
+  letter-spacing: var(--ael-ls-tighter);
+}
+
+.ael-heading-section {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-3xl);
+  font-weight: var(--ael-weight-regular);
+  line-height: var(--ael-lh-tight);
+}
+
+.ael-heading-sub {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-2xl);
+  font-weight: var(--ael-weight-regular);
+  line-height: var(--ael-lh-snug);
+}
+
+.ael-heading-card {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-xl);
+  font-weight: var(--ael-weight-regular);
+  line-height: var(--ael-lh-snug);
+}
+
+/* — UI / Labels (Josefin Sans) — */
+
+.ael-label {
+  font-family: var(--ael-font-ui);
+  font-size: var(--ael-text-xs);
+  font-weight: var(--ael-weight-bold);
+  letter-spacing: var(--ael-ls-widest);
+  text-transform: uppercase;
+}
+
+.ael-label-md {
+  font-family: var(--ael-font-ui);
+  font-size: var(--ael-text-base);
+  font-weight: var(--ael-weight-bold);
+  letter-spacing: var(--ael-ls-wider);
+  text-transform: uppercase;
+}
+
+.ael-ui-text {
+  font-family: var(--ael-font-ui);
+  font-size: var(--ael-text-md);
+  font-weight: var(--ael-weight-light);
+  line-height: var(--ael-lh-normal);
+}
+
+.ael-meta {
+  font-family: var(--ael-font-ui);
+  font-size: var(--ael-text-sm);
+  font-weight: var(--ael-weight-light);
+  line-height: var(--ael-lh-normal);
+}
+
+/* — Body / Prose (Open Sans — long-form reading only) — */
+
+.ael-prose-text {
+  font-family: var(--ael-font-body);
+  font-size: var(--ael-text-lg);
+  font-weight: var(--ael-weight-regular);
+  line-height: var(--ael-lh-loose);
+}
+
+.ael-prose-lede {
+  font-family: var(--ael-font-body);
+  font-size: 20px;
+  font-weight: var(--ael-weight-regular);
+  line-height: 1.7;
+}
+
+.ael-prose-sm {
+  font-family: var(--ael-font-ui);
+  font-size: 15px;
+  font-weight: var(--ael-weight-light);
+  line-height: var(--ael-lh-normal);
+}
+
+/* — Number / stat display (Lato) — */
+
+.ael-stat {
+  font-family: var(--ael-font-number);
+  font-weight: var(--ael-weight-light);
+  line-height: 1;
+}
