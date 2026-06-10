@@ -340,3 +340,221 @@
 @media (min-width: 1024px) {
   .ael-blog-grid { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* ================================================================
+   BYLINE (author link in hero meta)
+   ================================================================ */
+.ael-byline__author {
+  color: var(--ael-color-gold);
+  text-decoration: none;
+  font-weight: var(--ael-weight-regular);
+}
+.ael-byline__author:hover { text-decoration: underline; }
+
+/* ================================================================
+   KEY FACTS CARD  (franz-style overview block)
+   ================================================================ */
+.ael-keyfacts {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 5vw 0;
+}
+.ael-keyfacts__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--ael-color-line);
+  border: 1px solid var(--ael-color-line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.ael-keyfacts__item {
+  background: #fff;
+  padding: 20px 22px;
+}
+.ael-keyfacts__label {
+  display: block;
+  font-family: var(--ael-font-ui);
+  font-size: 11px;
+  font-weight: var(--ael-weight-bold);
+  letter-spacing: var(--ael-ls-wider);
+  text-transform: uppercase;
+  color: var(--ael-color-gold);
+  margin-bottom: 6px;
+}
+.ael-keyfacts__value {
+  font-family: var(--ael-font-ui);
+  font-size: 16px;
+  font-weight: var(--ael-weight-light);
+  line-height: 1.4;
+  color: var(--ael-color-ink);
+}
+
+/* ================================================================
+   IN-CONTENT FIGURE  (full-width image between sections)
+   ================================================================ */
+.ael-figure {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(960px, 90vw);
+  margin: 44px 0;
+}
+.ael-figure__img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.ael-figure__credit {
+  margin: 8px 0 0;
+  font-family: var(--ael-font-ui);
+  font-size: 11px;
+  font-weight: var(--ael-weight-light);
+  color: var(--ael-color-ghost);
+  text-align: right;
+}
+.ael-figure__credit a { color: var(--ael-color-gold); text-decoration: none; }
+.ael-figure__credit a:hover { text-decoration: underline; }
+
+/* ================================================================
+   HIGHLIGHTS  (franz-style "results" block)
+   ================================================================ */
+.ael-highlights {
+  background: var(--ael-color-surface);
+  padding: 8px 5vw 64px;
+}
+.ael-highlights__inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.ael-highlights__title {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-2xl);
+  font-weight: var(--ael-weight-regular);
+  color: var(--ael-color-ink);
+  margin: 0 0 28px;
+}
+.ael-highlights__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+.ael-highlights__item {
+  border-top: 2px solid var(--ael-color-gold);
+  padding-top: 16px;
+}
+.ael-highlights__h {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-xl);
+  font-weight: var(--ael-weight-regular);
+  color: var(--ael-color-ink);
+  margin: 0 0 8px;
+}
+.ael-highlights__t {
+  font-family: var(--ael-font-ui);
+  font-size: 15px;
+  font-weight: var(--ael-weight-light);
+  line-height: var(--ael-lh-normal);
+  color: var(--ael-color-muted);
+  margin: 0;
+}
+
+/* ================================================================
+   CTA HEADING (above calendar mount)
+   ================================================================ */
+.ael-cta-head {
+  background: var(--ael-color-surface);
+  padding: 0 5vw 8px;
+  text-align: center;
+}
+.ael-cta-head__title {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-2xl);
+  font-weight: var(--ael-weight-regular);
+  color: var(--ael-color-ink);
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+/* ================================================================
+   AUTHOR BIO BOX
+   ================================================================ */
+.ael-author-bio {
+  background: var(--ael-color-surface);
+  padding: 8px 5vw 72px;
+}
+.ael-author-bio__inner {
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid var(--ael-color-line);
+  border-radius: 16px;
+  padding: 24px;
+}
+.ael-author-bio__avatar {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--ael-color-dark);
+  color: var(--ael-color-cream);
+  font-family: var(--ael-font-display);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ael-author-bio__name {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-xl);
+  font-weight: var(--ael-weight-regular);
+  color: var(--ael-color-ink);
+  margin: 0 0 4px;
+}
+.ael-author-bio__text {
+  font-family: var(--ael-font-ui);
+  font-size: 14px;
+  font-weight: var(--ael-weight-light);
+  line-height: var(--ael-lh-normal);
+  color: var(--ael-color-muted);
+  margin: 0 0 6px;
+}
+.ael-author-bio__link {
+  font-family: var(--ael-font-ui);
+  font-size: 13px;
+  font-weight: var(--ael-weight-regular);
+  color: var(--ael-color-gold);
+  text-decoration: none;
+}
+.ael-author-bio__link:hover { text-decoration: underline; }
+
+/* ================================================================
+   RELATED ARTICLES
+   ================================================================ */
+.ael-related {
+  background: #fff;
+  padding: 64px 5vw;
+  border-top: 1px solid var(--ael-color-line);
+}
+.ael-related__inner { max-width: 980px; margin: 0 auto; }
+.ael-related__title {
+  font-family: var(--ael-font-display);
+  font-size: var(--ael-text-2xl);
+  font-weight: var(--ael-weight-regular);
+  color: var(--ael-color-ink);
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+/* ================================================================
+   RESPONSIVE — new components
+   ================================================================ */
+@media (min-width: 768px) {
+  .ael-keyfacts__inner { grid-template-columns: repeat(4, 1fr); }
+  .ael-highlights__grid { grid-template-columns: repeat(3, 1fr); }
+}

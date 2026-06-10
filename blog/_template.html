@@ -36,17 +36,24 @@
     "datePublished": "[[YYYY-MM-DD]]",
     "dateModified": "[[YYYY-MM-DD]]",
     "author": {
-      "@type": "Organization",
-      "name": "Apartmani Elegance",
-      "url": "https://apartmanielegance.ba/"
+      "@type": "Person",
+      "name": "Eldar Dizdarević",
+      "url": "https://www.linkedin.com/in/eldardizdarevic/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Apartmani Elegance",
+      "url": "https://apartmanielegance.ba/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://apartmanielegance.ba/images/elegance-logo-navbar.svg"
-      }
+      },
+      "sameAs": [
+        "https://www.booking.com/hotel/ba/apartmani-tuzla-tuzla.hr.html",
+        "https://airbnb.com/h/elegance-apartments-in-tuzla",
+        "https://www.instagram.com/apartmani.elegance",
+        "https://g.co/kgs/ap9i2xV"
+      ]
     },
     "about": { "@type": "Place", "name": "Tuzla", "addressRegion": "Tuzlanski kanton", "addressCountry": "BA" },
     "keywords": ["[[KEYWORD 1]]", "[[KEYWORD 2]]", "apartmani Tuzla", "smještaj Tuzla"],
@@ -95,12 +102,23 @@
     <p class="ael-blog-hero__cat">[[CATEGORY]]</p>
     <h1 class="ael-blog-hero__title" style="color:#1a1a1a;">[[POST TITLE]]</h1>
     <p class="ael-blog-hero__meta">
-      <time datetime="[[YYYY-MM-DD]]">[[DD. Month YYYY.]]</time> · Apartmani Elegance
+      <time datetime="[[YYYY-MM-DD]]">[[DD. Month YYYY.]]</time> · <a class="ael-byline__author" href="https://www.linkedin.com/in/eldardizdarevic/" target="_blank" rel="noopener author">Eldar Dizdarević</a>
     </p>
     <div class="ael-blog-hero__img-wrap">
       <img class="ael-blog-hero__img" src="../images/blog/[[SLUG]]-hero.jpg" alt="[[IMAGE ALT TEXT]]" loading="eager">
     </div>
+    <p class="ael-blog-hero__credit">[[IMAGE CREDIT: Foto: Autor / Wikimedia Commons, licenca — ili izostaviti]]</p>
   </section>
+
+  <!-- Key facts (4 stavke: label + vrijednost) -->
+  <div class="ael-keyfacts">
+    <div class="ael-keyfacts__inner">
+      <div class="ael-keyfacts__item"><span class="ael-keyfacts__label">[[FACT 1 LABEL]]</span><span class="ael-keyfacts__value">[[FACT 1 VALUE]]</span></div>
+      <div class="ael-keyfacts__item"><span class="ael-keyfacts__label">[[FACT 2 LABEL]]</span><span class="ael-keyfacts__value">[[FACT 2 VALUE]]</span></div>
+      <div class="ael-keyfacts__item"><span class="ael-keyfacts__label">[[FACT 3 LABEL]]</span><span class="ael-keyfacts__value">[[FACT 3 VALUE]]</span></div>
+      <div class="ael-keyfacts__item"><span class="ael-keyfacts__label">[[FACT 4 LABEL]]</span><span class="ael-keyfacts__value">[[FACT 4 VALUE]]</span></div>
+    </div>
+  </div>
 
   <!-- Prose content -->
   <section class="ael-prose-wrap">
@@ -109,10 +127,20 @@
       <p class="lede">[[CITE-ABLE LEDE: 2-3 factual sentences about the topic. Specific, citeable by AI engines.]]</p>
 
       <h2>[[Section 1 heading]]</h2>
-      <p>[[Content...]]</p>
+      <p>[[Content...]] [[Interni link na drugi blog/stranicu, varirati anchor.]]</p>
+
+      <figure class="ael-figure">
+        <img class="ael-figure__img" src="../images/blog/[[SLUG]]-1.jpg" alt="[[ALT slike 1]]" loading="lazy">
+        <figcaption class="ael-figure__credit">[[CREDIT slike 1 — ili izostaviti]]</figcaption>
+      </figure>
 
       <h2>[[Section 2 heading]]</h2>
       <p>[[Content...]]</p>
+
+      <figure class="ael-figure">
+        <img class="ael-figure__img" src="../images/blog/[[SLUG]]-2.jpg" alt="[[ALT slike 2]]" loading="lazy">
+        <figcaption class="ael-figure__credit">[[CREDIT slike 2 — ili izostaviti]]</figcaption>
+      </figure>
 
       <h2>[[Section 3 heading]]</h2>
       <p>[[Content...]]</p>
@@ -123,6 +151,27 @@
         za parove, porodice i poslovne goste, sa besplatnim parkingom i Wi-Fi-em.</p>
 
     </article>
+  </section>
+
+  <!-- Highlights (3 ključne izjave) -->
+  <section class="ael-highlights">
+    <div class="ael-highlights__inner">
+      <h2 class="ael-highlights__title">Ključne informacije</h2>
+      <div class="ael-highlights__grid">
+        <div class="ael-highlights__item">
+          <h3 class="ael-highlights__h">[[Highlight 1 naslov]]</h3>
+          <p class="ael-highlights__t">[[Highlight 1 opis]]</p>
+        </div>
+        <div class="ael-highlights__item">
+          <h3 class="ael-highlights__h">[[Highlight 2 naslov]]</h3>
+          <p class="ael-highlights__t">[[Highlight 2 opis]]</p>
+        </div>
+        <div class="ael-highlights__item">
+          <h3 class="ael-highlights__h">[[Highlight 3 naslov]]</h3>
+          <p class="ael-highlights__t">[[Highlight 3 opis]]</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FAQ section -->
@@ -153,8 +202,58 @@
     </div>
   </section>
 
+  <!-- CTA -->
+  <div class="ael-cta-head">
+    <h2 class="ael-cta-head__title">[[CTA naslov, npr. Rezervišite svoj boravak]]</h2>
+  </div>
+
   <!-- Calendar / Rezervacija CTA -->
   <div id="ael-cal-mount"></div>
+
+  <!-- Author bio (uvijek isti) -->
+  <section class="ael-author-bio">
+    <div class="ael-author-bio__inner">
+      <div class="ael-author-bio__avatar">E</div>
+      <div class="ael-author-bio__body">
+        <p class="ael-author-bio__name">Eldar Dizdarević</p>
+        <p class="ael-author-bio__text">Dizajner i web developer iz Tuzle. Gradi brze, vidljive web stranice za lokalne biznise.</p>
+        <a class="ael-author-bio__link" href="https://www.linkedin.com/in/eldardizdarevic/" target="_blank" rel="noopener">Poveži se na LinkedInu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related articles (2 bloga + 1 komercijalna stranica) -->
+  <section class="ael-related">
+    <div class="ael-related__inner">
+      <h2 class="ael-related__title">Povezani članci</h2>
+      <div class="ael-blog-grid">
+        <a class="ael-blog-card" href="[[RELATED 1 SLUG]].html">
+          <img class="ael-blog-card__img" src="../images/blog/[[RELATED 1 SLUG]]-hero.jpg" alt="[[RELATED 1 ALT]]" loading="lazy">
+          <div class="ael-blog-card__body">
+            <span class="ael-blog-card__cat">[[RELATED 1 KAT]]</span>
+            <h3 class="ael-blog-card__title">[[RELATED 1 NASLOV]]</h3>
+            <p class="ael-blog-card__excerpt">[[RELATED 1 OPIS]]</p>
+          </div>
+        </a>
+        <a class="ael-blog-card" href="[[RELATED 2 SLUG]].html">
+          <img class="ael-blog-card__img" src="../images/blog/[[RELATED 2 SLUG]]-hero.jpg" alt="[[RELATED 2 ALT]]" loading="lazy">
+          <div class="ael-blog-card__body">
+            <span class="ael-blog-card__cat">[[RELATED 2 KAT]]</span>
+            <h3 class="ael-blog-card__title">[[RELATED 2 NASLOV]]</h3>
+            <p class="ael-blog-card__excerpt">[[RELATED 2 OPIS]]</p>
+          </div>
+        </a>
+        <a class="ael-blog-card" href="../[[KOMERCIJALNA STRANICA]].html">
+          <img class="ael-blog-card__img" src="../images/blog/[[SLUG]]-1.jpg" alt="[[KOMERCIJALNA ALT]]" loading="lazy">
+          <div class="ael-blog-card__body">
+            <span class="ael-blog-card__cat">Smještaj</span>
+            <h3 class="ael-blog-card__title">[[KOMERCIJALNA NASLOV]]</h3>
+            <p class="ael-blog-card__excerpt">[[KOMERCIJALNA OPIS]]</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <div id="ael-footer"></div>
