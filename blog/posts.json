@@ -1,5 +1,29 @@
 [
   {
+    "slug": "tuzla-aerodrom-do-apartmana",
+    "title": "Od aerodroma Tuzla do apartmana: vodič za dolazak",
+    "excerpt": "Sve opcije prijevoza od aerodroma Tuzla do smještaja: taksi, autobus, rent-a-car i koliko traje put do apartmana.",
+    "date": "2026-06-30",
+    "category": "Putni vodiči",
+    "image": "../images/blog/tuzla-aerodrom-do-apartmana-hero.jpg"
+  },
+  {
+    "slug": "jeftini-apartmani-tuzla",
+    "title": "Jeftini apartmani u Tuzli bez kompromisa na kvalitet",
+    "excerpt": "Kako pronaći povoljan a kvalitetan apartman u Tuzli, šta utiče na cijenu i kako uštedjeti direktnom rezervacijom.",
+    "date": "2026-06-30",
+    "category": "Smještaj",
+    "image": "../images/blog/jeftini-apartmani-tuzla-hero.jpg"
+  },
+  {
+    "slug": "najbolji-restorani-u-tuzli",
+    "title": "Najbolji restorani u Tuzli: gdje jesti",
+    "excerpt": "Gdje jesti u Tuzli: tradicionalna kuhinja, restorani u centru i blizu Panonskih jezera, kafane i slastičarne.",
+    "date": "2026-06-30",
+    "category": "Gastronomija",
+    "image": "../images/blog/najbolji-restorani-u-tuzli-hero.jpg"
+  },
+  {
     "slug": "sta-posjetiti-u-tuzli",
     "title": "Šta posjetiti u Tuzli: 10 mjesta koja vrijedi vidjeti",
     "excerpt": "Tuzla nudi mnogo više od Panonskih jezera. Otkrijte stari grad, Sol, Muzej istočne Bosne i skrivene lokalne gemove.",
